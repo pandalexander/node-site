@@ -25,3 +25,7 @@ I have successfully implemented a server that serves different html files depend
 1. Consider making url input case-irrelevant (eg. /About === /about)
 2. Serve the 404 page if fs.stat returns an error
 3. Make Content-Type dynamic depending on what file is needed => right now it's hardcoded for html only
+
+## Update - Upgrade to Express
+
+To continue learning, I refactored the code using Express. I have achieved the same result, but with no error handling (for now). I just wanted to get it up and running to learn the basics of Express.
