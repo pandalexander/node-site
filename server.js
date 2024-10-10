@@ -1,44 +1,23 @@
-// const fs = require("node:fs");
-// const http = require("node:http");
+const express = require("express");
+const app = express();
+const path = require("path");
 
-// const indexServer = http.createServer((req, res) => {
-//   let path;
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 
-//   switch (req.url) {
-//     case "/":
-//       path = "./index.html";
-//       break;
+app.get("/contact-me", (req, res) => {
+  res.sendFile(path.join(__dirname, "contact-me.html"));
+});
 
-//     case "/about":
-//       path = "./about.html";
-//       break;
-//     case "/contact-me":
-//       path = "./contact-me.html";
-//       break;
+app.get("/about", (req, res) => {
+  res.sendFile(path.join(__dirname, "about.html"));
+});
 
-//     default:
-//       path = "./404.html";
-//   }
+app.get("/404", (req, res) => {
+  res.sendFile(path.join(__dirname, "404.html"));
+});
 
-//   fs.stat(path, (error, stats) => {
-//     if (error) {
-//       res.writeHead(404);
-//       res.end("File not found");
-//     } else {
-//       res.writeHead(200, {
-//         "Content-Type": "text/html",
-//         "Content-Length": stats.size,
-//       });
-
-//       const fileStream = fs.createReadStream(path);
-//       fileStream.pipe(res);
-//       fileStream.on("Error", (error) => {
-//         console.error("File Stream error: " + error);
-//         res.statusCode(500);
-//         res.end("Internal server error");
-//       });
-//     }
-//   });
-// });
-
-// indexServer.listen(8080);
+app.listen(8080, () => {
+  console.log("LISTENING");
+});
