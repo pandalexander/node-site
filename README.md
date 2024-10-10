@@ -17,3 +17,11 @@ Create your node.js server file index.js and add the code needed to serve the ri
 - localhost:8080/about should take users to about.html
 - localhost:8080/contact-me should take users to contact-me.html
 - 404.html should display any time the user tries to go to a page not listed above.
+
+## Solution
+
+I have successfully implemented a server that serves different html files depending on the url in the browser. Some additional points to consider for future improvement:
+
+1. Consider making url input case-irrelevant (eg. /About === /about)
+2. Serve the 404 page if fs.stat returns an error
+3. Make Content-Type dynamic depending on what file is needed => right now it's hardcoded for html only
